@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Instituto Wescley Fagundes{% endblock %}</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+</head>
+<body class="bg-gray-100">
+
+    
+    <header class="bg-blue-600 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-2xl font-bold" href="/">Instituto Wescley Fagundes</a>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="/" class="hover:underline">Início</a></li>
+                    <li><a href="/contato/" class="hover:underline">Contato</a></li>
+                    <li><a href="/admin/" class="hover:underline">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    
+    <main class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    
+    <footer class="bg-gray-800 text-white text-center py-4 mt-10">
+        <p>&copy; 2025 Instituto Wescley Fagundes - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Contato - Instituto Wescley Fagundes{% endblock %}
+
+{% block content %}
+    <h1 class="text-3xl font-semibold text-center text-gray-800">Entre em Contato</h1>
+    <p class="text-center text-gray-600 mt-2">Preencha o formulário abaixo para falar conosco.</p>
+
+    <form class="mt-6 max-w-lg mx-auto">
+        <div class="mb-4">
+            <label class="block text-gray-700">Nome</label>
+            <input type="text" class="w-full p-2 border rounded-md" placeholder="Seu nome">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700">E-mail</label>
+            <input type="email" class="w-full p-2 border rounded-md" placeholder="seuemail@example.com">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700">Mensagem</label>
+            <textarea class="w-full p-2 border rounded-md" rows="4" placeholder="Digite sua mensagem"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">
+            Enviar Mensagem
+        </button>
+    </form>
+{% endblock %}
