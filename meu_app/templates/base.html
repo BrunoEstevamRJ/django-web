@@ -9,32 +9,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
 </head>
-<body class="bg-gray-100">
-
+<body class="bg-gray-100 flex flex-col min-h-screen">
     
     <header class="bg-blue-600 p-4 text-white">
         <div class="container mx-auto flex justify-between items-center">
             <a class="text-2xl font-bold" href="/">Instituto Wescley Fagundes</a>
-            <nav>
+            <nav class="flex items-center space-x-4">
                 <ul class="flex space-x-4">
                     <li><a href="/" class="hover:underline">Início</a></li>
                     <li><a href="/contato/" class="hover:underline">Contato</a></li>
                     <li><a href="/admin/" class="hover:underline">Admin</a></li>
                 </ul>
+                {% if user.is_authenticated %}
+                    <span class="text-sm font-semibold">Bem-vindo, {{ user.username }}!</span>
+                    <form method="post" action="{% url 'accounts:logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-success">Logout</button>
+                    </form>
+                    
+                {% else %}
+                    <a href="{% url 'accounts:login' %}" class="hover:underline">Login</a>
+                {% endif %}
             </nav>
         </div>
     </header>
-
     
-    <main class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <main class="container mx-auto flex-grow mt-10 p-6 bg-white shadow-lg rounded-lg">
         {% block content %}
         {% endblock %}
     </main>
-
     
-    <footer class="bg-gray-800 text-white text-center py-4 mt-10">
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto">
         <p>&copy; 2025 Instituto Wescley Fagundes - Todos os direitos reservados.</p>
     </footer>
 
 </body>
+
 </html>

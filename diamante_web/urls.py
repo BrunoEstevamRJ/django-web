@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('meu_app/', include('meu_app.urls')),
     path('contato/', views.contato, name='contato'),
+    path('accounts/', include('accounts.urls')),
 ]
